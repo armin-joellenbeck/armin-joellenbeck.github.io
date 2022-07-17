@@ -1,0 +1,7 @@
+name: build docs
+on: [push]
+jobs:
+  jekyll:
+    runs-on: ubuntu-latest
+    steps:
+      - echo "Hello World!"
