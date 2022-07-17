@@ -8,5 +8,6 @@ jobs:
       - uses: ruby/setup-ruby@v1.111.0
         with:
           ruby-version: '3.1.2'
+      - run: bundle install
       - run: bundle exec jekyll
       - run: touch docs/.nojekyll
