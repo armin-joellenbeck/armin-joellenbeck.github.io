@@ -19,6 +19,7 @@ jobs:
           path: docs
   publish_pages:
     needs: build_pages
+    if: ${{github.ref_name == 'main'}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
