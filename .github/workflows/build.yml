@@ -3,12 +3,10 @@ on: [push]
 jobs:
   jekyll:
     runs-on: ubuntu-latest
-    container:
-      image: ruby:3.1.2
     steps:
       - uses: actions/checkout@v3
       - uses: ruby/setup-ruby@v1.111.0
         with:
-          ruby-version: '3.1'
+          ruby-version: '3.1.2'
       - run: ruby --version
       - run: bundle --version
