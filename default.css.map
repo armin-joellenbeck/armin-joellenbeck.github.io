@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "default.css",
+	"sources": [
+		"default.scss"
+	],
+	"sourcesContent": [
+		"body {\n  font-family: 'Ubuntu', sans-serif;\n  font-display: swap;\n}\n\na {text-decoration: none;}\n\ndd {padding-bottom: 1em;}\n"
+	],
+	"names": [],
+	"mappings": "AAAA,AAAA,IAAI,CAAC,EACH,WAAW,EAAE,oBAAoB,EACjC,YAAY,EAAE,IAAI,GACnB;;AAED,AAAA,CAAC,CAAC,EAAC,eAAe,EAAE,IAAI,GAAG;;AAE3B,AAAA,EAAE,CAAC,EAAC,cAAc,EAAE,GAAG,GAAG"
+}
