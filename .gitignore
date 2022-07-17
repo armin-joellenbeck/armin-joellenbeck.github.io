@@ -1,0 +1,3 @@
+.bundle
+docs
+!docs/.nojekyll
