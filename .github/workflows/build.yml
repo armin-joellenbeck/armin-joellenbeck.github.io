@@ -13,3 +13,8 @@ jobs:
       - run: bundle install
       - run: bundle exec jekyll build
       - run: touch docs/.nojekyll
+      - uses: actions/upload-artifact@v3
+        with:
+          name: docs
+          path: docs
+
