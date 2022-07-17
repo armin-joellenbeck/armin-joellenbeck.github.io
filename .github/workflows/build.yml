@@ -1,7 +1,7 @@
-name: build docs
+name: pages 
 on: [push]
 jobs:
-  jekyll:
+  build pages:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -17,4 +17,16 @@ jobs:
         with:
           name: docs
           path: docs
+  publish pages:
+    needs: build pages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/download-artifact@v3
+        with:
+          name: docs
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: docs
+
 
