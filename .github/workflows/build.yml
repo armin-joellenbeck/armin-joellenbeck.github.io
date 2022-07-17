@@ -1,7 +1,7 @@
 name: pages 
 on: [push]
 jobs:
-  build pages:
+  build_pages:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -17,8 +17,8 @@ jobs:
         with:
           name: docs
           path: docs
-  publish pages:
-    needs: build pages
+  publish_pages:
+    needs: build_pages
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
