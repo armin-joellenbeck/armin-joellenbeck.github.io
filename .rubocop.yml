@@ -1,0 +1,18 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  DisplayStyleGuide: true
+  NewCops: enable
+
+Metrics/BlockLength:
+  CountAsOne: ['hash']
+  IgnoredMethods: ['describe']
+
+Metrics/MethodLength:
+  CountAsOne: ['hash']
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
