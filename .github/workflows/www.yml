@@ -1,7 +1,8 @@
-name: pages 
-on: [push]
+name: www
+on:
+  - push
 jobs:
-  build_pages:
+  build_www:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -9,26 +10,27 @@ jobs:
         with:
           bundler-cache: true
           ruby-version: '3.1.2'
-      - run: bundle config set --global clean true
-      - run: bundle install
-      - run: bundle exec jekyll build
-      - run: touch docs/.nojekyll
+      - run: |
+          cd www
+          bundle config set path .bundle
+          bundle install
+          bundle exec jekyll build
+          touch public/.nojekyll
       - uses: actions/upload-artifact@v3
         with:
-          name: docs
-          path: docs
-  publish_pages:
-    needs: build_pages
+          name: www-public
+          path: www/public
+  deploy_www:
+    needs: build_www
     if: ${{github.ref_name == 'main'}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/download-artifact@v3
         with:
-          name: docs
-          path: docs
+          name: www-public
+          path: www/public
       - uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: docs
-
+          folder: www/public
 
