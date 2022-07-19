@@ -11,7 +11,7 @@ jobs:
           bundler-cache: true
           ruby-version: '3.1.2'
       - name: jekyll build
-      - run: |
+        run: |
           bundle exec jekyll build
           touch public/.nojekyll
       - uses: actions/upload-artifact@v3
