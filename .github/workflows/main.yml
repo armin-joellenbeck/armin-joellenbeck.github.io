@@ -1,0 +1,40 @@
+name: main
+on:
+  - push
+jobs:
+  build_www:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: setup ruby
+        uses: ruby/setup-ruby@v1.111.0
+        with:
+          bundler-cache: true
+          ruby-version: '3.1.2'
+      - name: jekyll build
+        run: |
+          bundle exec jekyll build
+          touch public/.nojekyll
+      - name: upload public
+        uses: actions/upload-artifact@v3
+        with:
+          name: public
+          path: public
+  deploy_www:
+    needs: build_www
+    if: ${{github.ref_name == 'main'}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: downlod public
+        uses: actions/download-artifact@v3
+        with:
+          name: public
+          path: public
+      - name: deploy public 
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: www/public
+

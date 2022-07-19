@@ -1,0 +1,8 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  DisplayStyleGuide: true
+  NewCops: enable
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
