@@ -5,7 +5,8 @@ jobs:
   build_www:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: checkout
+        uses: actions/checkout@v3
       - uses: ruby/setup-ruby@v1.111.0
         with:
           bundler-cache: true
