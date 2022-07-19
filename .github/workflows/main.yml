@@ -15,7 +15,6 @@ jobs:
       - name: jekyll build
         run: |
           bundle exec jekyll build
-          touch public/.nojekyll
       - name: upload public
         uses: actions/upload-artifact@v3
         with:
@@ -33,8 +32,10 @@ jobs:
         with:
           name: public
           path: public
+      - name: no jeykill processing by githab
+        run: touch public/.nojekyll
       - name: deploy public 
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: www/public
+          folder: public
 
