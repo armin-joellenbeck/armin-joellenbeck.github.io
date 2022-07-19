@@ -11,15 +11,12 @@ jobs:
           bundler-cache: true
           ruby-version: '3.1.2'
       - run: |
-          cd www
-          bundle config set path .bundle
-          bundle install
           bundle exec jekyll build
           touch public/.nojekyll
       - uses: actions/upload-artifact@v3
         with:
-          name: www-public
-          path: www/public
+          name: public
+          path: public
   deploy_www:
     needs: build_www
     if: ${{github.ref_name == 'main'}}
@@ -28,8 +25,8 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/download-artifact@v3
         with:
-          name: www-public
-          path: www/public
+          name: public
+          path: public
       - uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: www/public
