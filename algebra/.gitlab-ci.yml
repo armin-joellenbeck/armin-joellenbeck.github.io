@@ -1,0 +1,4 @@
+include:
+  - local: .gitlab-ci/common.gitlab-ci.yml
+  - local: .gitlab-ci/jobs/rspec.gitlab-ci.yml
+  - local: .gitlab-ci/jobs/rubocop.gitlab-ci.yml
