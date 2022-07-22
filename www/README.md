@@ -1,5 +1,4 @@
-# armin-joellenbeck.github.io
+# www
 
-This repository contains the source code for the subdomain
+This project contains the source code for the subdomain
 [www.joellenbeck.net](https://www.joellenbeck.net)
-and more ...
