@@ -2,6 +2,21 @@ name: main
 on:
   - push
 jobs:
+  rubocop:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: setup ruby
+        uses: ruby/setup-ruby@v1.111.0
+        with:
+          bundler-cache: true
+          ruby-version: '3.1.2'
+          working-directory: www
+      - name: rubocop
+        run: |
+          cd www
+          bundle exec rubocop
   public:
     runs-on: ubuntu-latest
     steps:
