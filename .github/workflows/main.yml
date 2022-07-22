@@ -23,7 +23,7 @@ jobs:
           name: www-public
           path: www/public
   deploy:
-    needs: build
+    needs: public
     if: ${{github.ref_name == 'main'}}
     runs-on: ubuntu-latest
     steps:
