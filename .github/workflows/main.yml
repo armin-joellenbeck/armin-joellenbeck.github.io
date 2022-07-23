@@ -46,7 +46,7 @@ jobs:
       - name: downlod public
         uses: actions/download-artifact@v3
         with:
-          path: ''
+          name: artifact
       - name: populate public
         run: |
           cp -r www/public public/www
