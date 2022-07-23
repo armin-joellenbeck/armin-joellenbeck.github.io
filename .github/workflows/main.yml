@@ -2,19 +2,21 @@ name: main
 on:
   - push
 jobs:
-  rubocop:
+  ruby:
     strategy: 
       matrix:
+        tool:
+          - rspec
         dir:
           - algebra
           - kanban
-          - www
-        tool:
-          - rspec
-          - rubocop
-        exclude:
-          - dir: www
-            tool: rspec
+        include:
+          - tool:
+              - rubocop
+            dir:
+              - algebra
+              - kanban
+              - www
     runs-on: ubuntu-latest
     steps:
       - name: checkout
