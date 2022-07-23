@@ -7,16 +7,13 @@ jobs:
       matrix:
         tool:
           - rspec
+          - rubocop
         dir:
           - algebra
           - kanban
         include:
-          - tool:
-              - rubocop
-            dir:
-              - algebra
-              - kanban
-              - www
+          - tool: rubocop
+            dir: www
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -27,7 +24,7 @@ jobs:
           bundler-cache: true
           ruby-version: '3.1.2'
           working-directory: ${{ matrix.dir }}
-      - name: rubocop
+      - name: bundle exec ${{matrix.tool}}
         run: |
           cd ${{ matrix.dir }}
           bundle exec ${{matrix.tool}}
