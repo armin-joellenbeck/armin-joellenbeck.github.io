@@ -34,7 +34,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           if-no-files-found: ignore
-          path: ${{ matrix.dir }}/public
+          path: ${{ matrix.dir }}/public/**/*
   deploy:
     needs:
       - ruby
