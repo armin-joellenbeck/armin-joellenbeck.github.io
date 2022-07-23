@@ -6,6 +6,8 @@ jobs:
     strategy: 
       matrix:
         dir:
+          - algebra
+          - kanban
           - www
     runs-on: ubuntu-latest
     steps:
