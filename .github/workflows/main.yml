@@ -34,6 +34,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           if-no-files-found: ignore
+          name: artifacts
           path: '*/public'
   deploy:
     needs:
@@ -46,7 +47,7 @@ jobs:
       - name: downlod public
         uses: actions/download-artifact@v3
         with:
-          name: artifact
+          name: artifacts
       - name: populate public
         run: |
           mkdir public
