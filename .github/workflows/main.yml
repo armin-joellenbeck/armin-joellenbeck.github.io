@@ -46,10 +46,11 @@ jobs:
         uses: actions/checkout@v3
       - name: downlod public
         uses: actions/download-artifact@v3
-      - name: no jeykill processing by github
-        run: touch www/public/.nojekyll
+      - name: populate public
+        run: |
+          cp -r www/public public/www
+          touch public/.nojekyll
       - name: deploy public 
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: www/public
-
+          folder: public
