@@ -14,6 +14,8 @@ jobs:
         include:
           - tool: rubocop
             dir: www
+          - tool: jekyll
+            dir www
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -28,28 +30,12 @@ jobs:
         run: |
           cd ${{ matrix.dir }}
           bundle exec ${{matrix.tool}}
-  public:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@v3
-      - name: setup ruby
-        uses: ruby/setup-ruby@v1.111.0
-        with:
-          bundler-cache: true
-          ruby-version: '3.1.2'
-          working-directory: www
-      - name: jekyll build
-        run: |
-          cd www
-          bundle exec jekyll build
       - name: upload public
         uses: actions/upload-artifact@v3
         with:
-          path: www/public
+          path: ${{ matrix.dir }}/public
   deploy:
     needs:
-      - public
       - ruby
     if: ${{github.ref_name == 'main'}}
     runs-on: ubuntu-latest
