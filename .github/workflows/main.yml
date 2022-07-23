@@ -49,7 +49,9 @@ jobs:
           name: www-public
           path: www/public
   deploy:
-    needs: public
+    needs:
+      - public
+      - ruby
     if: ${{github.ref_name == 'main'}}
     runs-on: ubuntu-latest
     steps:
