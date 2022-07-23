@@ -33,7 +33,8 @@ jobs:
       - name: upload public
         uses: actions/upload-artifact@v3
         with:
-          path: ${{ matrix.dir }}/public
+          if-no-files-found: ignore
+          path: ${{ matrix.dir }}/public/*
   deploy:
     needs:
       - ruby
