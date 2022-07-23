@@ -3,6 +3,10 @@ on:
   - push
 jobs:
   rubocop:
+    strategy: 
+      matrix:
+        dir:
+          - www
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -12,10 +16,10 @@ jobs:
         with:
           bundler-cache: true
           ruby-version: '3.1.2'
-          working-directory: www
+          working-directory: ${{ matrix.dir }}
       - name: rubocop
         run: |
-          cd www
+          cd ${{ matrix.dir }}
           bundle exec rubocop
   public:
     runs-on: ubuntu-latest
