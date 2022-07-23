@@ -49,8 +49,9 @@ jobs:
           name: artifact
       - name: populate public
         run: |
-          cp -r www/public public/www
+          mkdir public
           touch public/.nojekyll
+          cp -r www/public public/www
       - name: deploy public 
         uses: JamesIves/github-pages-deploy-action@v4
         with:
