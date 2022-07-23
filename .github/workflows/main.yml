@@ -2,7 +2,20 @@ name: main
 on:
   - push
 jobs:
-  build:
+  ruby:
+    strategy: 
+      matrix:
+        tool:
+          - rspec
+          - rubocop
+        dir:
+          - algebra
+          - kanban
+        include:
+          - tool: rubocop
+            dir: www
+          - tool: jekyll build
+            dir: www
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -12,18 +25,20 @@ jobs:
         with:
           bundler-cache: true
           ruby-version: '3.1.2'
-          working-directory: www
-      - name: jekyll build
+          working-directory: ${{ matrix.dir }}
+      - name: bundle exec ${{matrix.tool}}
         run: |
-          cd www
-          bundle exec jekyll build
+          cd ${{ matrix.dir }}
+          bundle exec ${{matrix.tool}}
       - name: upload public
         uses: actions/upload-artifact@v3
         with:
-          name: www-public
-          path: www/public
+          if-no-files-found: ignore
+          name: artifacts
+          path: '*/public'
   deploy:
-    needs: build
+    needs:
+      - ruby
     if: ${{github.ref_name == 'main'}}
     runs-on: ubuntu-latest
     steps:
@@ -32,12 +47,16 @@ jobs:
       - name: downlod public
         uses: actions/download-artifact@v3
         with:
-          name: www-public
-          path: www/public
-      - name: no jeykill processing by github
-        run: touch www/public/.nojekyll
+          name: artifacts
+      - name: populate public
+        run: |
+          mkdir public
+          touch public/.nojekyll
+          # TODO for loop over paths ending with public
+          cp -r www/public public/www
+          mv public/www/* public
+          rmdir public/www
       - name: deploy public 
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: www/public
-
+          folder: public
