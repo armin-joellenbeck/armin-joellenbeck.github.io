@@ -52,6 +52,8 @@ jobs:
           mkdir public
           touch public/.nojekyll
           cp -r www/public public/www
+          mv public/www/* public
+          rmdir public/www
       - name: deploy public 
         uses: JamesIves/github-pages-deploy-action@v4
         with:
