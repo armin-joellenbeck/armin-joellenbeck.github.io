@@ -38,7 +38,7 @@ jobs:
   deploy:
     needs:
       - ruby
-    #if: ${{github.ref_name == 'main'}}
+    if: ${{github.ref_name == 'main'}}
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -51,6 +51,7 @@ jobs:
         run: |
           mkdir public
           touch public/.nojekyll
+          # TODO for loop over paths ending with public
           cp -r www/public public/www
           mv public/www/* public
           rmdir public/www
