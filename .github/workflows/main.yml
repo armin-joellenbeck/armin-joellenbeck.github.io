@@ -46,7 +46,6 @@ jobs:
       - name: upload public
         uses: actions/upload-artifact@v3
         with:
-          name: www-public
           path: www/public
   deploy:
     needs:
