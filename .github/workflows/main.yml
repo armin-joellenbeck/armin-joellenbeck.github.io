@@ -5,10 +5,17 @@ jobs:
   rubocop:
     strategy: 
       matrix:
-        dir:
-          - algebra
-          - kanban
-          - www
+        - tool:
+            - rubocop
+          dir:
+            - algebra
+            - kanban
+            - www
+        - tool:
+            - rspec
+          dir:
+            - algebra
+            - kanban
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -22,7 +29,7 @@ jobs:
       - name: rubocop
         run: |
           cd ${{ matrix.dir }}
-          bundle exec rubocop
+          bundle exec ${{matrix.tool}}
   public:
     runs-on: ubuntu-latest
     steps:
