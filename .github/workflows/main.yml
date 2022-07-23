@@ -34,7 +34,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           if-no-files-found: ignore
-          path: */public
+          path: '*/public'
   deploy:
     needs:
       - ruby
