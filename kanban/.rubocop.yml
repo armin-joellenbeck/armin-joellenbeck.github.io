@@ -1,0 +1,27 @@
+inherit_from: .rubocop_todo.yml
+
+require:
+  - rubocop-rspec
+
+AllCops:
+  DisplayStyleGuide: true
+  NewCops: enable
+
+Layout/LineLength:
+  Max: 80
+
+Metrics/BlockLength:
+  CountAsOne: ['hash']
+  IgnoredMethods: ['describe']
+
+Metrics/MethodLength:
+  CountAsOne: ['hash']
+
+RSpec/ExampleLength:
+  CountAsOne: ['hash']
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
