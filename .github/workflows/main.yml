@@ -33,21 +33,19 @@ jobs:
       - name: upload public
         uses: actions/upload-artifact@v3
         with:
+          name: ${{matrix.tool}} - ${{ matrix.dir }}
           if-no-files-found: ignore
           path: '*/public'
   deploy:
     needs:
       - ruby
-    if: ${{github.ref_name == 'main'}}
+    #if: ${{github.ref_name == 'main'}}
     runs-on: ubuntu-latest
     steps:
       - name: checkout
         uses: actions/checkout@v3
       - name: downlod public
         uses: actions/download-artifact@v3
-        with:
-          name: www-public
-          path: www/public
       - name: no jeykill processing by github
         run: touch www/public/.nojekyll
       - name: deploy public 
