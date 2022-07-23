@@ -15,7 +15,7 @@ jobs:
           - tool: rubocop
             dir: www
           - tool: jekyll
-            dir www
+            dir: www
     runs-on: ubuntu-latest
     steps:
       - name: checkout
