@@ -5,17 +5,16 @@ jobs:
   rubocop:
     strategy: 
       matrix:
-        - tool:
-            - rubocop
-          dir:
-            - algebra
-            - kanban
-            - www
-        - tool:
-            - rspec
-          dir:
-            - algebra
-            - kanban
+        dir:
+          - algebra
+          - kanban
+          - www
+        tool:
+          - rspec
+          - rubocop
+        exclude:
+          - dir: www
+            tool: rspec
     runs-on: ubuntu-latest
     steps:
       - name: checkout
