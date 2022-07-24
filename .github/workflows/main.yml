@@ -17,6 +17,8 @@ jobs:
           - tool: jekyll build
             dir: www
     runs-on: ubuntu-latest
+    env:
+      GEMFILE_LOCK: ${{ matrix.dir }}/Gemfile.lock
     steps:
       - name: checkout
         uses: actions/checkout@v3
@@ -28,7 +30,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ${{ matrix.dir }}/.bundle 
-          key: ${{ runner.os }}-${{ hashFiles(join([matrix.dir, '/Gemfile.lock'], '/')) }}
+          key: ${{ env.GEMFILE_LOCK }}
       - name: bundle exec ${{matrix.tool}}
         run: |
           cd ${{ matrix.dir }}
