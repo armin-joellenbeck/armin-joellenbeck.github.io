@@ -24,6 +24,11 @@ jobs:
         uses: ruby/setup-ruby@v1.111.0
         with:
           ruby-version: '3.1.2'
+      - name: cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ matrix.dir }}/.bundle 
+          key: ${{ runner.os }}-${{ hashFiles('${{ matrix.dir }}/Gemfile.lock') }}
       - name: bundle exec ${{matrix.tool}}
         run: |
           cd ${{ matrix.dir }}
