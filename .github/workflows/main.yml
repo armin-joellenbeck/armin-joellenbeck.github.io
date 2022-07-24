@@ -23,8 +23,7 @@ jobs:
       - name: setup ruby
         uses: ruby/setup-ruby@v1.111.0
         with:
-          bundler-cache: true
-          cache-version: 1
+          bundler-cache: false
           ruby-version: '3.1.2'
           working-directory: ${{ matrix.dir }}
       - name: bundle exec ${{matrix.tool}}
