@@ -30,7 +30,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ${{ matrix.dir }}/.bundle 
-          key: ${{ env.GEMFILE_LOCK }}
+          key: ${{ hashFiles(env.GEMFILE_LOCK) }}
       - name: bundle exec ${{matrix.tool}}
         run: |
           cd ${{ matrix.dir }}
