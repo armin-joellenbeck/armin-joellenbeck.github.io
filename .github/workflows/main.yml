@@ -17,19 +17,19 @@ jobs:
           - tool: jekyll build
             dir: www
     runs-on: ubuntu-latest
-    env:
-      BUNDLE_GEMFILE: ${{ github.workspace }}/${{ matrix.dir }}/Gemfile
     steps:
       - name: checkout
         uses: actions/checkout@v3
       - name: setup ruby
         uses: ruby/setup-ruby@v1.111.0
         with:
-          bundler-cache: false
           ruby-version: '3.1.2'
       - name: bundle exec ${{matrix.tool}}
         run: |
           cd ${{ matrix.dir }}
+          bundle config set clean true
+          bundle config set path .bundle
+          bundle install
           bundle exec ${{matrix.tool}}
       - name: upload public
         uses: actions/upload-artifact@v3
