@@ -17,19 +17,26 @@ jobs:
           - tool: jekyll build
             dir: www
     runs-on: ubuntu-latest
-    BUNDLE_GEMFILE: ${{ github.workspace }}/${{ matrix.dir }}/Gemfile
+    env:
+      GEMFILE_LOCK: ${{ matrix.dir }}/Gemfile.lock
     steps:
       - name: checkout
         uses: actions/checkout@v3
       - name: setup ruby
         uses: ruby/setup-ruby@v1.111.0
         with:
-          bundler-cache: false
           ruby-version: '3.1.2'
-          working-directory: ${{ matrix.dir }}
+      - name: cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ matrix.dir }}/.bundle 
+          key: ${{ hashFiles(env.GEMFILE_LOCK) }}
       - name: bundle exec ${{matrix.tool}}
         run: |
           cd ${{ matrix.dir }}
+          bundle config set clean true
+          bundle config set path .bundle
+          bundle install
           bundle exec ${{matrix.tool}}
       - name: upload public
         uses: actions/upload-artifact@v3
