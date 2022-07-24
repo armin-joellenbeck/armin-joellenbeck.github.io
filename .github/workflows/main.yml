@@ -24,6 +24,7 @@ jobs:
         uses: ruby/setup-ruby@v1.111.0
         with:
           bundler-cache: true
+          cache-version: 1
           ruby-version: '3.1.2'
           working-directory: ${{ matrix.dir }}
       - name: bundle exec ${{matrix.tool}}
