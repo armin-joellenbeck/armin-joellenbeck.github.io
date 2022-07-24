@@ -17,7 +17,8 @@ jobs:
           - tool: jekyll build
             dir: www
     runs-on: ubuntu-latest
-    BUNDLE_GEMFILE: ${{ github.workspace }}/${{ matrix.dir }}/Gemfile
+    env:
+      BUNDLE_GEMFILE: ${{ github.workspace }}/${{ matrix.dir }}/Gemfile
     steps:
       - name: checkout
         uses: actions/checkout@v3
