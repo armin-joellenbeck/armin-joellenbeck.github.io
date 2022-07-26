@@ -6,7 +6,5 @@
     "schedule": ["at any time"]
   },
 
-  {
-    "dependencyDashboard": true
-  }
+  "dependencyDashboard": true
 }
