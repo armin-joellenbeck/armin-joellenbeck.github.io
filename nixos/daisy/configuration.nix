@@ -60,6 +60,7 @@
   };
 
   networking = {
+    firewall.enable = false;
     hostName = "daisy";
     networkmanager.enable = true;
   };
