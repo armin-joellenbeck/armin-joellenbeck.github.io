@@ -12,5 +12,6 @@
     ./micro.nix
     ./rust.nix
     ./tldr.nix
+    ./tree.nix
   ];
 } 
