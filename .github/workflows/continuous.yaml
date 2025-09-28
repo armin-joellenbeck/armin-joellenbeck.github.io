@@ -4,8 +4,16 @@ on:
     branches:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
+env:
+  CARGO_TERM_COLOR: always
 jobs:
-  build:
+  test-rust:
+    runs-on: ubuntu-24.04
+    steps:
+    - uses: actions/checkout@v5.0.0
+    - name: Run tests
+      run: cargo test --verbose
+  build-pages:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
@@ -14,10 +22,10 @@ jobs:
         uses: actions/upload-pages-artifact@v4.0.0
         with:
           path: public
-  deploy:
+  deploy-pages:
     if: ${{ github.ref_name == github.event.repository.default_branch }}
     needs:
-      - build
+      - build-pages
     runs-on: ubuntu-24.04
     environment:
       name: github-pages
