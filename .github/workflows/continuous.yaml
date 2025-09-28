@@ -1,0 +1,31 @@
+name: Continuous
+on:
+  push:
+    branches:
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Upload pages artifact
+        uses: actions/upload-pages-artifact@v4.0.0
+        with:
+          path: public
+  deploy:
+    if: ${{ github.ref_name == github.event.repository.default_branch }}
+    needs:
+      - build
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    permissions:
+      id-token: write
+      pages: write
+    steps:
+      - name: Deploy pages artifact
+        id: deploy
+        uses: actions/deploy-pages@v4.0.5
