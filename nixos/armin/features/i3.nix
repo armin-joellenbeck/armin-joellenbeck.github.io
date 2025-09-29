@@ -14,13 +14,6 @@
         outer = 5;
       };
 
-      terminal = "ghostty --gtk-single-instance=true";
-
-      startup = [
-        { command = "ghostty --gtk-single-instance=true"; }
-        { command = "xsetroot -solid \"#555555\""; }
-      ];
-
       bars = [
         {
           fonts = {
@@ -32,6 +25,14 @@
           statusCommand = "i3status";
         }
       ];
+
+      startup = [
+        { command = "xsetroot -solid \"#555555\""; }
+        { command = "ghostty --gtk-single-instance=true"; }
+        { command = "exec google-chrome-stable"; }
+      ];
+
+      terminal = "ghostty --gtk-single-instance=true";
 
       keybindings = lib.mkOptionDefault {
         "Ctrl+Mod1+Delete" = "exec i3-msg exit";
