@@ -79,15 +79,6 @@
   services = {
     blueman.enable = true;
 
-    displayManager = {
-      autoLogin = {
-        enable = true;
-        user = "armin";
-      };
-
-      defaultSession = "none+i3"; # TODO
-    };
-
     pipewire = {
       enable = true;
 
