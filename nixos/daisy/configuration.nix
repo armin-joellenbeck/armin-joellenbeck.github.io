@@ -79,6 +79,15 @@
   services = {
     blueman.enable = true;
 
+    displayManager.ly = {
+      enable = true;
+
+      settings = {
+        brightness_down_key = "null";
+        brightness_up_key = "null";
+      };
+    };
+    
     pipewire = {
       enable = true;
 
@@ -106,12 +115,6 @@
 
     xserver = {
       enable = true;
-
-      displayManager = {
-        lightdm = {
-          enable = true;
-        };
-      };
 
       videoDrivers = ["nvidia"];
 
