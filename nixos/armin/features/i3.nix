@@ -33,21 +33,9 @@
         }
       ];
 
-      modes = {
-        "[e]xit, [s]uspend, [r]eboot, [p]oweroff" = {
-          "e" = "exec i3-msg exit";
-          "s" = "exec systemctl suspend";
-          "r" = "exec systemctl reboot";
-          "p" = "exec systemctl poweroff";
-          "Escape" = "mode \"default\"";
-        };
-      };
-
       keybindings = lib.mkOptionDefault {
-        "Ctrl+Mod1+Delete" =
-          "mode \"[e]xit, [s]uspend, [r]eboot, [p]oweroff\"";
-        "Shift+Mod4+Return" =
-          "exec google-chrome-stable";
+        "Ctrl+Mod1+Delete" = "exec i3-msg exit";
+        "Shift+Mod4+Return" = "exec google-chrome-stable";
       };
     };
   };
