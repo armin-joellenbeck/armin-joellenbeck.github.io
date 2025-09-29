@@ -16,7 +16,6 @@
   hardware = {
     bluetooth = {
       enable = true;
-      powerOnBoot = true;
     };
 
     enableAllFirmware = true;
@@ -28,10 +27,8 @@
     nvidia = {
       modesetting.enable = true;
       package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
-      powerManagement.enable = false;
-      powerManagement.finegrained = false;
-      open = false;
       nvidiaSettings = true;
+      powerManagement.enable = true;
     };
   };
 
