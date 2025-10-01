@@ -20,15 +20,8 @@
 
     enableAllFirmware = true;
     
-    graphics = {
-      enable = true;
-    };
-
     nvidia = {
-      modesetting.enable = true;
       package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
-      nvidiaSettings = true;
-      powerManagement.enable = true;
     };
   };
 
