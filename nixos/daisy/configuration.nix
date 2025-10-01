@@ -20,6 +20,8 @@
 
     enableAllFirmware = true;
     
+    graphics.enable = true;
+    
     nvidia = {
       package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
     };
