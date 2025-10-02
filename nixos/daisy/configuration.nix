@@ -6,6 +6,8 @@
     ./hardware-configuration.nix
   ];
 
+  boot.kernelModules = [ "nouveau" ];
+
   boot.loader = {
     efi.canTouchEfiVariables = true;
     systemd-boot.enable = true;
@@ -22,9 +24,9 @@
     
     graphics.enable = true;
     
-    nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
-    };
+#    nvidia = {
+#      package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
+#    };
   };
 
   i18n = {
@@ -108,7 +110,7 @@
     xserver = {
       enable = true;
 
-      videoDrivers = ["nvidia"];
+      videoDrivers = ["nouveau"];
 
       windowManager.i3.enable = true;
 
