@@ -10,8 +10,8 @@
       modifier = "Mod4";
 
       gaps = {
-        inner = 10;
-        outer = 5;
+        inner = 0;
+        outer = 0;
       };
 
       bars = [
