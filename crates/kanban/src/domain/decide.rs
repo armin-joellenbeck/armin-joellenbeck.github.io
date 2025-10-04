@@ -34,9 +34,7 @@ mod test {
     #[test]
     fn test_decide_user_changes_card_title() {
         assert_eq!(
-            decide(&IncomingAction::user_user_changes_card_title(
-                "a card title"
-            )),
+            decide(&IncomingAction::user_user_changes_card_title(A_CARD_TITLE)),
             vec![Event::card_title_changed_by_user(A_CARD_TITLE)]
         );
     }
