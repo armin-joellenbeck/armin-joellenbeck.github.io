@@ -28,11 +28,11 @@
 
       startup = [
         { command = "xsetroot -solid \"#555555\""; }
-        { command = "ghostty --gtk-single-instance=true"; }
+        { command = "alacritty"; }
         { command = "exec google-chrome-stable"; }
       ];
 
-      terminal = "ghostty --gtk-single-instance=true";
+      terminal = "alacritty msg create-window || alacritty";
 
       keybindings = lib.mkOptionDefault {
         "Ctrl+Mod1+Delete" = "exec i3-msg exit";
