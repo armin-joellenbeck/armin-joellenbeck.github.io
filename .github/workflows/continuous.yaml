@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v5.0.0
     - name: Run tests
-      run: cd rust && cargo test --verbose
+      run: cd crates && cargo test --verbose
   build-pages:
     runs-on: ubuntu-24.04
     steps:
