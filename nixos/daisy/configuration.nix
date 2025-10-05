@@ -128,6 +128,7 @@
 
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINHlILC65uB97qxhZqACejWvnsEO6AlsZu89vm6VUYMH JuiceSSH"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBTdSe1DZgngDhURVbDbnZ9DE96PWxIpSr8U745AGrj1 ajoellenbeck@penguin"
     ];
   };
 
