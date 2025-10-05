@@ -5,7 +5,6 @@
     ./alacritty.nix
     ./bash.nix
     ./gh.nix
-    ./ghostty.nix
     ./git.nix
     ./google-chrome.nix
     ./helix.nix
