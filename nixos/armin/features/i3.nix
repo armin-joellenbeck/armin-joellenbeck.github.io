@@ -29,13 +29,13 @@
       startup = [
         { command = "xsetroot -solid \"#555555\""; }
         { command = "alacritty"; }
-        { command = "exec google-chrome-stable"; }
+        { command = "google-chrome-stable"; }
       ];
 
       terminal = "alacritty msg create-window || alacritty";
 
       keybindings = lib.mkOptionDefault {
-        "Ctrl+Mod1+Delete" = "exec i3-msg exit";
+        "Ctrl+Mod1+Delete" = "exec pkill chrome && sleep 3 && i3-msg exit";
         "Shift+Mod4+Return" = "exec google-chrome-stable";
       };
     };
