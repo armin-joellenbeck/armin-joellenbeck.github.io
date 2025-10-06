@@ -18,6 +18,9 @@
       enable = true;
     };
 
+    enableAllFirmware = true;
+
+    enableAllHardware = true;
   };
 
   i18n = {
