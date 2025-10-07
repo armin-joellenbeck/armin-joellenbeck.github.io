@@ -1,18 +1,18 @@
-use crate::domain::event::Event;
+use super::event::Event;
 
-use crate::domain::incoming_action::{CardTitle, IncomingAction};
+use super::incoming_action::{CardTitle, IncomingAction};
 
-pub fn decide(action: &IncomingAction) -> Vec<Event> {
+pub fn decide(action: IncomingAction) -> Vec<Event> {
     match action {
         IncomingAction::UserAddsCardToBoard {
             title: CardTitle(title),
         } => {
-            vec![Event::card_added_to_board_by_user(title)]
+            vec![Event::CardAddedToBoardByUser(title)]
         }
         IncomingAction::UserChangesCardTitle {
             title: CardTitle(title),
         } => {
-            vec![Event::card_title_changed_by_user(title)]
+            vec![Event::CardTitleChangedByUser(title)]
         }
     }
 }
@@ -25,17 +25,19 @@ mod test {
 
     #[test]
     fn test_decide_user_adds_card_to_board() {
-        assert_eq!(
-            decide(&IncomingAction::user_adds_card_board(A_CARD_TITLE)),
-            vec![Event::card_added_to_board_by_user(A_CARD_TITLE)]
-        );
+        let action = IncomingAction::user_adds_card_board(A_CARD_TITLE);
+
+        let events = vec![Event::CardAddedToBoardByUser(A_CARD_TITLE.to_string())];
+
+        assert_eq!(decide(action), events);
     }
 
     #[test]
     fn test_decide_user_changes_card_title() {
-        assert_eq!(
-            decide(&IncomingAction::user_user_changes_card_title(A_CARD_TITLE)),
-            vec![Event::card_title_changed_by_user(A_CARD_TITLE)]
-        );
+        let action = IncomingAction::user_user_changes_card_title(A_CARD_TITLE);
+
+        let events = vec![Event::CardTitleChangedByUser(A_CARD_TITLE.to_string())];
+
+        assert_eq!(decide(action), events);
     }
 }

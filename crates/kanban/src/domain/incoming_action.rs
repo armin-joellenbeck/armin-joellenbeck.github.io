@@ -1,4 +1,13 @@
 #[derive(Debug, PartialEq)]
+pub struct CardTitle(pub String);
+
+impl CardTitle {
+    fn new(title: &str) -> Self {
+        Self(title.to_string())
+    }
+}
+
+#[derive(Debug, PartialEq)]
 pub enum IncomingAction {
     UserAddsCardToBoard { title: CardTitle },
     UserChangesCardTitle { title: CardTitle },
@@ -18,11 +27,3 @@ impl IncomingAction {
     }
 }
 
-#[derive(Debug, PartialEq)]
-pub struct CardTitle(pub String);
-
-impl CardTitle {
-    pub fn new(title: &str) -> Self {
-        Self(title.to_string())
-    }
-}
