@@ -1,6 +1,9 @@
-mod domain;
+pub mod actions;
+pub mod decide;
+pub mod entities;
+pub mod events;
+pub mod evolve;
 
-pub use crate::domain::decide::decide;
+pub use crate::decide::decide;
 
-pub use crate::domain::card::Card;
-
+pub use crate::evolve::evolve;
