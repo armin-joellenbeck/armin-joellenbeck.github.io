@@ -8,6 +8,7 @@
 
     settings = {
       theme = "github_light";
+
       editor = {
         auto-save = {
           focus-lost = true;
@@ -15,6 +16,12 @@
             enable = true;
             timeout = 3000;
           };
+        };
+
+        # end-of-line-diagnostics = "hint";
+          
+        inline-diagnostics = {
+          cursor-line = "hint";
         };
       };
     };
