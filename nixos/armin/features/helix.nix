@@ -20,6 +20,12 @@
 
         bufferline = "always";
           
+        cursor-shape = {
+          normal = "block";
+          insert = "bar";
+          select = "underline";
+        };
+        
         inline-diagnostics = {
           cursor-line = "hint";
         };
