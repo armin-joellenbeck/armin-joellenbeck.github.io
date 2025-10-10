@@ -2,7 +2,8 @@
 
 {
   home.packages = [
-    pkgs.gcc
+    pkgs.clang
+    pkgs.lldb
 
     pkgs.cargo
     pkgs.clippy
