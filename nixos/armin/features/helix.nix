@@ -18,7 +18,7 @@
           };
         };
 
-        # end-of-line-diagnostics = "hint";
+        bufferline = "always";
           
         inline-diagnostics = {
           cursor-line = "hint";
