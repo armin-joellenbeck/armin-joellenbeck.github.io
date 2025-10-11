@@ -2,13 +2,13 @@ use super::entities::{Card, Column};
 use super::events::Event;
 
 pub fn evolve(card: Card, event: Event) -> Card {
-    let Card(title, column) = card;
+    let Card{title, column} = card;
     match event {
         Event::CardAdded { title: _ } => todo!(),
-        Event::CardTitleChanged { title } => Card(title, column),
-        Event::CardSelected() => Card(title, Column::Todo),
-        Event::CardStarted() => Card(title, Column::Ongoing),
-        Event::CardFinished() => Card(title, Column::Done),
+        Event::CardTitleChanged { title } => Card{title, column},
+        Event::CardSelected() => Card{title, column: Column::Todo},
+        Event::CardStarted() => Card{title, column: Column::Ongoing},
+        Event::CardFinished() => Card{title, column: Column::Done},
         Event::CardRemoved() => todo!(),
     }
 }
@@ -25,34 +25,34 @@ mod test {
     fn test_card_title_changed() {
         assert_eq!(
             evolve(
-                Card(String::new(), Column::Backlog),
+                Card{title: String::new(), column: Column::Backlog},
                 Event::CardTitleChanged {
                     title: a_card_title()
                 }
             ),
-            Card(a_card_title(), Column::Backlog)
+            Card{title: a_card_title(), column: Column::Backlog}
         );
     }
 
     #[test]
     fn test_card_selected() {
         assert_eq!(
-            evolve(Card(String::new(), Column::Backlog), Event::CardSelected()),
-            Card(String::new(), Column::Todo)
+            evolve(Card{title: String::new(), column:Column::Backlog}, Event::CardSelected()),
+            Card{title:String::new(), column:Column::Todo}
         )
     }
     #[test]
     fn test_card_started() {
         assert_eq!(
-            evolve(Card(String::new(), Column::Backlog), Event::CardStarted()),
-            Card(String::new(), Column::Ongoing)
+            evolve(Card{title:String::new(), column:Column::Backlog}, Event::CardStarted()),
+            Card{title:String::new(), column:Column::Ongoing}
         )
     }
     #[test]
     fn test_card_finished() {
         assert_eq!(
-            evolve(Card(String::new(), Column::Backlog), Event::CardFinished()),
-            Card(String::new(), Column::Done)
+            evolve(Card{title:String::new(), column:Column::Backlog}, Event::CardFinished()),
+            Card{title:String::new(), column:Column::Done}
         )
     }
 }

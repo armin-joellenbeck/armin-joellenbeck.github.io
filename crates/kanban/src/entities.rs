@@ -1,5 +1,8 @@
 #[derive(Debug, PartialEq)]
-pub struct Card(pub String, pub Column);
+pub struct Card {
+    pub title: String,
+    pub column: Column,
+}
 
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum Column {
