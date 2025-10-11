@@ -4,7 +4,7 @@ pub struct Card {
     pub column: Column,
 }
 
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Debug, PartialEq)]
 pub enum Column {
     Backlog,
     Todo,
