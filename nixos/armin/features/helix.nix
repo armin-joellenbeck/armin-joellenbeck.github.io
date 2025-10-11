@@ -29,6 +29,8 @@
         inline-diagnostics = {
           cursor-line = "hint";
         };
+
+        true-color = true;
       };
     };
   };
