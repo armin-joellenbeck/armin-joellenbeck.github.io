@@ -21,6 +21,10 @@
     enableAllFirmware = true;
 
     enableAllHardware = true;
+
+    nvidia = {
+      package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
+    };
   };
 
   i18n = {
@@ -104,7 +108,7 @@
     xserver = {
       enable = true;
 
-      videoDrivers = ["nouveau"];
+      videoDrivers = ["nvidia"];
 
       windowManager.i3.enable = true;
 
