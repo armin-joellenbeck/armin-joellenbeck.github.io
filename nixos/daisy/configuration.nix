@@ -110,8 +110,6 @@
 
       videoDrivers = ["nvidia"];
 
-      windowManager.i3.enable = true;
-
       xkb = {
         layout = "de";
         variant = "nodeadkeys";
