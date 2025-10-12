@@ -91,11 +91,11 @@ impl State {
         self.entities.entry(id).or_insert(entity);
     }
 
-    pub fn get(&mut self, id: &str) -> Option<&mut Entity> {
+    fn get(&mut self, id: &str) -> Option<&mut Entity> {
         self.entities.get_mut(id)
     }
 
-    pub fn remove(&mut self, id: &str) {
+    fn remove(&mut self, id: &str) {
         self.entities.remove(id);
     }
 }
