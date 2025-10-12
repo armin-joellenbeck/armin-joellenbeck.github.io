@@ -1,9 +1,8 @@
-pub mod actions;
-pub mod decide;
-pub mod entities;
-pub mod events;
-pub mod evolve;
+#![allow(clippy::enum_variant_names)]
 
-pub use crate::decide::decide;
+mod actions;
+mod entities;
+mod events;
+mod state;
 
-pub use crate::evolve::evolve;
+pub use crate::state::State;

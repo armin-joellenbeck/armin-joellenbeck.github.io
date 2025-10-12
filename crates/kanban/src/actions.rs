@@ -9,10 +9,10 @@ impl CardTitle {
 
 #[derive(Debug, PartialEq)]
 pub enum Action {
-    UserAddsCardToBoard { title: CardTitle },
-    UserChangesCardTitle { title: CardTitle },
-    UserSelectsCard {},
-    UserStartsCard {},
-    UserFinishesCard {},
-    UserRemovesCard {}, 
+    UserAddsCardToBoard { id: String, title: CardTitle },
+    UserChangesCardTitle { id: String, title: CardTitle },
+    UserSelectsCard { id: String },
+    UserStartsCard { id: String },
+    UserFinishesCard { id: String },
+    UserRemovesCard { id: String },
 }

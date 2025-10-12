@@ -1,4 +1,9 @@
 #[derive(Debug, PartialEq)]
+pub enum Entity {
+    Card(Card),
+}
+
+#[derive(Debug, PartialEq)]
 pub struct Card {
     pub title: String,
     pub column: Column,
