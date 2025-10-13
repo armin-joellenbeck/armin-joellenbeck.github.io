@@ -38,7 +38,7 @@
         terminal = "alacritty msg create-window || alacritty";
 
         keybindings = lib.mkOptionDefault {
-          "Ctrl+Mod1+Delete" = "exec pkill chrome && sleep 3 && i3-msg exit";
+          "Ctrl+Mod1+Delete" = "exec pkill chrome; exec sleep 1; exec i3-msg exit";
           "Shift+Mod4+Return" = "exec google-chrome-stable";
         };
       };
