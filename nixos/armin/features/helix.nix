@@ -7,7 +7,7 @@
     defaultEditor = true;
 
     settings = {
-      theme = "github_light";
+      theme = "github_dark_high_contrast";
 
       editor = {
         auto-save = {

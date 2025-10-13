@@ -8,6 +8,6 @@
       
     };
 
-    theme = "github_light_default";
+    theme = "github_dark_high_contrast";
   };
 }

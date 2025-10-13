@@ -13,7 +13,7 @@
         modifier = "Mod4";
 
         gaps = {
-          inner = 0;
+          inner = 5;
           outer = 0;
         };
 
