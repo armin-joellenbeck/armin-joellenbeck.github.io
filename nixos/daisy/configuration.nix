@@ -21,6 +21,7 @@
     enableAllFirmware = true;
 
     enableAllHardware = true;
+  };
 
   i18n = {
     defaultLocale = "en_US.UTF-8";
@@ -54,6 +55,13 @@
     firewall.enable = false;
     hostName = "daisy";
     networkmanager.enable = true;
+  };
+
+  nix.settings = {
+    extra-experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
   };
 
   nixpkgs.config = {
