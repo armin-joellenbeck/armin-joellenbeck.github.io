@@ -22,11 +22,6 @@
 
     enableAllHardware = true;
 
-    nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
-    };
-  };
-
   i18n = {
     defaultLocale = "en_US.UTF-8";
 
@@ -108,7 +103,7 @@
     xserver = {
       enable = true;
 
-      videoDrivers = ["nvidia"];
+      videoDrivers = ["nouveau"];
 
       xkb = {
         layout = "de";
