@@ -58,12 +58,11 @@
   };
 
   nix.settings = {
-    extra-experimental-features = [
-      "nix-command"
-      "flakes"
+    trusted-users = [
+      "armin"
     ];
   };
-
+    
   nixpkgs.config = {
     allowUnfree = true;
     nvidia.acceptLicense = true;
