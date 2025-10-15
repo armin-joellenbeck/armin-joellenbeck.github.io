@@ -46,7 +46,7 @@
 
     users.armin = { pkgs, ... }: {
       imports = [
-        ../armin/home.nix
+        ../home-manager/home.nix
       ];
     };    
   };
