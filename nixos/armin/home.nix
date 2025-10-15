@@ -7,6 +7,12 @@
     homeDirectory = "/home/armin";
   };
 
+  nix.settings = {
+    extra-experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+  };
 
   imports = [
     ./features
