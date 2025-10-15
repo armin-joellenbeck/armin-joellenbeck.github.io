@@ -1,9 +1,12 @@
 { ... }:
 
 {
-  home.stateVersion = "24.11";
-  home.username = "armin";
-  home.homeDirectory = "/home/armin";
+  home = {
+    stateVersion = "24.11";
+    username = "armin";
+    homeDirectory = "/home/armin";
+  };
+
 
   imports = [
     ./features
