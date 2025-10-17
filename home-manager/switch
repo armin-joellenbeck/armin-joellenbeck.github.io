@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-GC_NPROCS=1 home-manager switch --flake .
+home-manager switch -b backup --flake .
