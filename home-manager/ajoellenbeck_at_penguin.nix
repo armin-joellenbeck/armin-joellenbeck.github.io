@@ -13,7 +13,7 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  programs.bash.initExtra = ". /home/ajoellenbeck/.nix-profile/etc/profile.d/nix.sh"
+  programs.bash.initExtra = ". /home/ajoellenbeck/.nix-profile/etc/profile.d/nix.sh";
 
   imports = [
     ./bash.nix
