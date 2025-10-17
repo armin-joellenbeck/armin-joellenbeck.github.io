@@ -24,5 +24,6 @@
     ./ssh.nix
     ./tldr.nix
     ./tree.nix
+    ./zellij.nix
   ];
 }
