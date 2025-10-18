@@ -13,6 +13,16 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  nix.gc = {
+    automatic = true;
+
+    dates = [
+      "daily"
+    ];
+
+    options = "--delete-older-than 7d";
+  };
+  
   imports = [
     ./bash.nix
     ./git.nix
