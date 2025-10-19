@@ -61,12 +61,6 @@
         };
       };
     };
-    
-    gh = {
-      enable = true;
-
-      gitCredentialHelper.enable = true;
-    };
 
     lazygit = {
       enable = true;
