@@ -3,10 +3,8 @@
 {
   home = {
     stateVersion = "24.11";
-    #username = "armin";
-    username = "ajoellenbeck";
-    #homeDirectory = "/home/armin";
-    homeDirectory = "/home/ajoellenbeck";
+    username = "armin";
+    homeDirectory = "/home/armin";
   };
 
   programs.home-manager.enable = true;

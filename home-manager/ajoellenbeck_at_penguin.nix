@@ -3,9 +3,7 @@
 {
   home = {
     stateVersion = "24.11";
-    #username = "armin";
     username = "ajoellenbeck";
-    #homeDirectory = "/home/armin";
     homeDirectory = "/home/ajoellenbeck";
   };
 
