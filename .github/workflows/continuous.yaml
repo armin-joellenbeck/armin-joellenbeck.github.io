@@ -29,8 +29,13 @@ jobs:
         uses: cachix/install-nix-action@v31
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Use cachix
+        uses: cachix/cachix-action@v14
+        with:
+          name: armin-joellenbeck-public
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
       - name: Build
-        run: nix build ./home-manager#homeConfigurations."${{ matrix.configuration }}".activationPackage
+        run: nix build ./home-manager#homeConfigurations.${{ matrix.configuration }}.activationPackage
   build-pages:
     runs-on: ubuntu-24.04
     steps:
