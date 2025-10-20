@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v5.0.0
     - name: Run tests
-      run: cd crates && cargo test --verbose
+      run: 'cd crates && cargo test'
   home-manager:
     strategy:
       matrix:
@@ -32,10 +32,10 @@ jobs:
       - name: Use cachix
         uses: cachix/cachix-action@v14
         with:
-          name: armin-joellenbeck-public
+          name: '${{ env.CACHIX_NAME }}'
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
       - name: Build
-        run: nix build ./home-manager#homeConfigurations.${{ matrix.configuration }}.activationPackage
+        run: 'nix build ./home-manager#homeConfigurations.${{ matrix.configuration }}.activationPackage'
   build-pages:
     runs-on: ubuntu-24.04
     steps:
