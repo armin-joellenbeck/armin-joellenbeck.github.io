@@ -32,7 +32,7 @@ jobs:
       - name: Use cachix
         uses: cachix/cachix-action@v14
         with:
-          name: '${{ env.CACHIX_NAME }}'
+          name: '${{ vars.CACHIX_NAME }}'
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
       - name: Build
         run: 'nix build ./home-manager#homeConfigurations.${{ matrix.configuration }}.activationPackage'
