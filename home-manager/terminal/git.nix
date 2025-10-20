@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 { 
   programs = {
@@ -11,6 +11,7 @@
         };
 
         commit ={
+          gpgSign = true;
           verbose = true;
         };
 
@@ -26,6 +27,10 @@
           pruneTags = true;
         };
 
+        gpg = {
+          format = "ssh";
+        };
+          
         init = {
           defaultBranch = "main";
         };
@@ -52,12 +57,13 @@
         };
           
         tag = {
-          sort = "version:refname";  
+          sort = "version:refname";
         };
         
         user = {
           name = "Armin Jöllenbeck";
           email = "armin@joellenbeck.net";
+          signingkey = "/home/${config.home.username}/.ssh/id_ed25519";
         };
       };
     };
