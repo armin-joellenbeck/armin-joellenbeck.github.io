@@ -5,7 +5,7 @@
     git = {
       enable = true;
 
-      extraConfig = {
+      settings = {
         advice = {
           skippedCherryPicks = false;
         };
