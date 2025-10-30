@@ -46,7 +46,7 @@
 
     users.armin = { pkgs, ... }: {
       imports = [
-        ../home-manager/home.nix
+        ../home-manager/armin_at_daisy.nix
       ];
     };    
   };
