@@ -10,7 +10,7 @@ jobs:
   test-rust:
     runs-on: ubuntu-24.04
     steps:
-    - uses: actions/checkout@v5.0.0
+    - uses: actions/checkout@v6
     - name: Run tests
       run: 'cd crates && cargo test'
   home-manager:
@@ -24,7 +24,7 @@ jobs:
     runs-on: ${{ matrix.runner }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Install nix
         uses: cachix/install-nix-action@v31
         with:
@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Upload pages artifact
         uses: actions/upload-pages-artifact@v4.0.0
         with:
