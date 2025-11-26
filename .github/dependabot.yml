@@ -1,10 +1,14 @@
 version: 2
 updates:
   - package-ecosystem: "github-actions"
+    assignees:
+      - armin-joellenbeck
     directory: "/"
     schedule:
       interval: "daily"
   - package-ecosystem: "cargo"
+    assignees:
+      - armin-joellenbeck
     directory: "/"
     schedule:
       interval: "daily"
