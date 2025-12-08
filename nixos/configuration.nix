@@ -2,7 +2,6 @@
 
 {
   imports = [
-    <home-manager/nixos>
     ./hardware-configuration.nix
   ];
 
@@ -13,6 +12,10 @@
 
   console.keyMap = "de-latin1-nodeadkeys";
 
+  environment.systemPackages = [
+    pkgs.home-manager
+  ];
+  
   hardware = {
     bluetooth = {
       enable = true;
@@ -39,18 +42,6 @@
     };
   };
 
-  home-manager = {
-    backupFileExtension = "backup";
-
-    useGlobalPkgs = true;
-
-    users.armin = { pkgs, ... }: {
-      imports = [
-        ../home-manager/hosts/daisy/home.nix
-      ];
-    };    
-  };
-
   networking = {
     firewall.enable = false;
     hostName = "daisy";
@@ -58,6 +49,11 @@
   };
 
   nix.settings = {
+    experimental-features = [
+      "flakes"
+      "nix-command"
+    ];
+
     trusted-users = [
       "armin"
     ];
