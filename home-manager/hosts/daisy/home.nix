@@ -10,9 +10,8 @@
   programs.home-manager.enable = true;
 
   imports = [
-    ./xsession
-
-    ./graphical
-    ./terminal
+    ../../flavours/graphical
+    ../../flavours/terminal
+    ../../flavours/xsession
   ];
 }

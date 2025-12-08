@@ -22,6 +22,6 @@
   };
   
   imports = [
-    ./terminal
+    ../../flavours/terminal
   ];
 }
